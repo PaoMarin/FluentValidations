@@ -1,0 +1,52 @@
+﻿@model FluentValidationsMVC.Models.productos
+
+@{
+
+    ViewBag.Title = "Create";
+
+}
+
+<h2>Productos</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+
+            <legend>
+                Nombre del Producto:
+            </legend>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.nombre)
+                @Html.ValidationMessageFor(model => model.nombre)
+            </div>
+            <br />
+            <legend>
+                Precio:
+            </legend>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.precio)
+                @Html.ValidationMessageFor(model => model.precio)
+            </div>
+            <br />
+            <legend>Descripción del Producto:
+            </legend>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.descripcion)
+                @Html.ValidationMessageFor(model => model.descripcion)
+            </div>
+            <br />
+            <p>
+                <input type="submit" value="Create"/>
+            </p>
+
+    </fieldset>
+
+}
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
